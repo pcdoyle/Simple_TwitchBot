@@ -1,0 +1,2 @@
+# twitchbot
+Python Twitch Bot
