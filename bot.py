@@ -4,11 +4,11 @@ import socket
 from time import sleep
 
 # Setup Variables:
-HOST = "irc.twitch.tv"							# Twitch's IRC Server Address.
-PORT = 6667										# Port for the Twitch IRC Server.
-CHAN = "#skyhook"								# Channel to connect to.
-NICK = "KaoBotter"								# Bot username.
-PASS = "oauth:"	# Bot's AUTH Key.
+HOST = "irc.twitch.tv"	# Twitch's IRC Server Address.
+PORT = 6667				# Port for the Twitch IRC Server.
+CHAN = "#skyhook"		# Channel to connect to.
+NICK = "KaoBotter"		# Bot username.
+PASS = "oauth:"			# Bot's AUTH Key.
 
 #####################
 # IRC Send Functions
@@ -155,7 +155,7 @@ while True:
 					parse_message(message)
 
 					# This line doesn't work on Windows 10 for some reason. (It works on Linux and Mac OS)
-					# It only crashes the program when Twerk says... anything. Weird.
+					# It only crashes the program when Twerk says anything... weird. (Twerkspiracy?)
 					# Commented this out to fix the problem for now:
 					# print(sender + ": " + message) <--- the broken code. WTF Windows 10.
 
