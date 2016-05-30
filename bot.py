@@ -5,10 +5,10 @@ from time import sleep
 
 # Setup Variables:
 HOST = "irc.twitch.tv"	# Twitch's IRC Server Address.
-PORT = 6667				# Port for the Twitch IRC Server.
-CHAN = "#skyhook"		# Channel to connect to.
-NICK = "KaoBotter"		# Bot username.
-PASS = "oauth:"			# Bot's AUTH Key.
+PORT = 6667		# Port for the Twitch IRC Server.
+CHAN = "#skyhook"	# Channel to connect to.
+NICK = "KaoBotter"	# Bot username.
+PASS = "oauth:"		# Bot's AUTH Key.
 
 #####################
 # IRC Send Functions
