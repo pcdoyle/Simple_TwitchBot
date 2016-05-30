@@ -154,9 +154,9 @@ while True:
 					message = get_message(line)
 					parse_message(message)
 
-					# This line doesn't work on Windows 10 for some reason: (It works on Linux and Mac OS)
-					# Crashes when Twerk says anything... weird.
-					# Commented out to fix the problem for now.
+					# This line doesn't work on Windows 10 for some reason. (It works on Linux and Mac OS)
+					# It only crashes the program when Twerk says... anything. Weird.
+					# Commented this out to fix the problem for now:
 					# print(sender + ": " + message) <--- the broken code. WTF Windows 10.
 
 	except socket.error:
