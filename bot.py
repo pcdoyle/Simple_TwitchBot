@@ -6,8 +6,8 @@ from time import sleep
 # Setup Variables:
 HOST = "irc.twitch.tv"	# Twitch's IRC Server Address.
 PORT = 6667		# Port for the Twitch IRC Server.
-CHAN = "#skyhook"	# Channel to connect to.
-NICK = "KaoBotter"	# Bot username.
+CHAN = "#kaoatlantis"	# Channel to connect to.
+NICK = "BotAtlantis"	# Bot username.
 PASS = "oauth:"		# Bot's AUTH Key.
 
 #####################
@@ -66,61 +66,21 @@ def parse_message(msg):
 	if len(msg) >= 1:
 		fmsg = msg
 		msg  = msg.split(' ')
-		options = {'!art': command_art,
-				   '!race': command_race,
-				   '!summonboggz': command_summonboggz,
-				   '!ryan': command_ryan,
-				   '!dress': command_dress,
-				   '!mylife': command_life,
-				   '!farfromstuff': command_corgi,
-				   '!quinn': command_quinn}
+		options = {'!social': command_social,
+				}
 		if msg[0] in options:
 			options[msg[0]]()
-		elif msg[0] == '!quote' and msg[1] == 'add':
-			command_quoteadd(fmsg)
 		elif msg[0] == '!caster':
 			command_caster(msg[1])
 
 ####################
 # Command Functions
 ####################
-def command_art(): # Need to come up with a way to rate limit the bot.
-	send_message(CHAN, 'WEBSITE: http://skyhookart.com')
-	sleep(1) # This is a bad solution but it works.
-	send_message(CHAN, 'Society6: https://society6.com/samcrescenzo') # This line doens't send occasionally...
-	sleep(1) # This is a bad solution but it works.
-	send_message(CHAN, 'Instagram: https://www.instagram.com/samcrescenzo/')
-
-def command_summonboggz():
-	send_message(CHAN, 'Boggle he has been SUMMONED by ' + sender + "!")
+def command_social(): # Need to come up with a way to rate limit the bot.
+	send_message(CHAN, '.me Follow me on Twitter: https://twitter.com/kaoatlantis -and- Instagram: https://instagram.com/kaoatlantis')
 	
 def command_caster(caster):
 	send_message(CHAN, 'Follow ' + caster + " because they are awesome! :D " + "http://twitch.tv/" + caster)
-
-def command_race():
-	send_message(CHAN, 'Sorry, ' + sender + " the bot isn't working right now.")
-
-# This following code is a disaster but I needed it to work quickly.
-# If bot needed in future, will open file at the beginning, and keep it open until the program exits.
-def command_quoteadd(quote):
-	send_message(CHAN, 'Quote added to the list from: ' + sender)
-	with open("quotes.txt", "a") as myfile:
-		myfile.write("QUOTE FROM " + sender + " MESSAGE :: " + quote + "\n")
-		
-def command_ryan():
-	send_message(CHAN, 'https://i.imgur.com/pCcKOTK.jpg')
-	
-def command_quinn():
-	send_message(CHAN, 'https://i.imgur.com/hBjEuJv.gifv')
-	
-def command_dress():
-	send_message(CHAN, 'https://i.imgur.com/oaIWxYT.png')
-	
-def command_life():
-	send_message(CHAN, 'https://i.imgur.com/9LDozRu.png')
-	
-def command_corgi():
-	send_message(CHAN, 'https://i.imgur.com/XfxVELi.jpg')
 	
 ####################################
 # Create Socekts and Connect to IRC
@@ -157,7 +117,7 @@ while True:
 					# This line doesn't work on Windows 10 for some reason. (It works on Linux and Mac OS)
 					# It only crashes the program when Twerk says anything... weird. (Twerkspiracy?)
 					# Commented this out to fix the problem for now:
-					# print(sender + ": " + message) <--- the broken code. WTF Windows 10.
+					# print(sender + ": " + message) #<--- the broken code. WTF Windows 10.
 
 	except socket.error:
 		print("The socket died, connection closed.")
